@@ -32,7 +32,7 @@ class App extends Component {
     let changeDue = amountReceived - amountDue;
     this.setState({ changeDue: changeDue.toFixed(2) });
 
-    if (this.state.changeDue < 0) {
+    if (changeDue < 0) {
       return;
     }
 
@@ -46,12 +46,10 @@ class App extends Component {
       if (amount > 0) {
         let coin = coinTypes[i];
         this.setState({ [coin]: amount })
-        // $(`#${coinTypes[i]}-output`).append(`${amount}`);
         changeDue = changeDue % coinValues[i];
       } else {
         let coin = coinTypes[i];
         this.setState({ [coin]: amount })
-        // $(`#${coinTypes[i]}-output`).append("0");
       }
     }
   }
